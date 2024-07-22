@@ -10,9 +10,10 @@ function Grid() {
 
     function handleChange(row:number, col: number, event: React.ChangeEvent<HTMLInputElement>) {
         const newValue = event.target.value.toUpperCase();
+        const isValid = newValue.length === 0 || (newValue.length === 1 && (newValue >= 'A' && newValue <= 'Z'));
         const newValues = values.map((r, rIndex) => (
             r.map((val, cIndex) =>
-                rIndex === row && cIndex === col ? newValue : val
+                rIndex === row && cIndex === col ? (isValid ? newValue : val) : val
             )
         ))
         setValues(newValues)
@@ -64,7 +65,7 @@ function Grid() {
                         <button onClick={() => Randomize()}>Randomize</button>
                     </span>
                 </div>
-                <div className={style.answers}>{answers.map((val, idx) => <p key={idx}>{val}</p>)}</div>
+                <div className={style.answers}>{answers.map((val, idx) => <p className={style.words} key={idx}>{val}</p>)}</div>
             </div>
         </div>
     )

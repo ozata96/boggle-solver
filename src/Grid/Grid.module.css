@@ -42,6 +42,10 @@
     height: 500px;
     margin-left: 50px;
     overflow-y: auto;
+
+    p {
+        color: var(--white-color)
+    }
 }
 
 .app {
