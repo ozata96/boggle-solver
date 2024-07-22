@@ -1,30 +1,14 @@
-# React + TypeScript + Vite
+# Boggle Solver
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app was made to solve boggle puzzle boards. Boggle is a board game that was released in 1972 in which players attempt to create as many words as they can from a 4x4 grid of English letters. This program employs a pruned Trie structure to speed up the generation of candidate words.
 
-Currently, two official plugins are available:
+## Notes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app is still in development, the next steps for development will be:
+- Input reseliency
+- UI enhancements
+- Grid expansion
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The main features of this board are the solving and randomization mechanisms. The board itself is solved by implementing a Trie structure that employs pruning to speed up the process of looking up words. I chose boggle to explore how Trie structures are implemented and during development, I could see in real-time how pruning drastically improves the runtime of finding candidate words.
