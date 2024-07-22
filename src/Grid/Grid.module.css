@@ -1,6 +1,8 @@
+@import "../index.css";
+
 .header {
     /* background-color: black; */
-    color: black;
+    color: var(--white-color);
 }
   
 .boggle {
@@ -9,7 +11,7 @@
     justify-content: space-between;
     padding: 30px;
     border-radius: 10px;
-    background-color: bisque;
+    background-color: var(--coral-color);
 }
 
 .grid {
@@ -24,7 +26,8 @@
     width: 100%;
     height: 100%;
     padding: 25px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--white-color);
+    background-color: var(--white-color);
     box-sizing: border-box;
     text-align: center;
     font-size: 28px;
@@ -32,7 +35,7 @@
 }
 
 .answers {
-    border: 1px solid black;
+    background-color: var(--coral-color);
     border-radius: 5px;
     max-width: 100px;
     min-width: 100px;
@@ -56,11 +59,11 @@ button {
     padding: 10px 20px;
     margin: 5px;
     font-size: 16px;
-    color: white;
+    color: var(--white-color);
     text-align: center;
     text-decoration: none;
     border-radius: 10px;
-    background: black;
+    background: var(--orange-alt-color);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -69,7 +72,8 @@ button {
 
 /* Hover effect */
 button:hover {
-    background: green;
+    background: var(--yellow-color);
+    color: black;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
