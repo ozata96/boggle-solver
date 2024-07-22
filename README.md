@@ -1,5 +1,8 @@
 # Boggle Solver
 
+Please find the app hosted here:
+https://boggle-solver.vercel.app/
+
 This app was made to solve boggle puzzle boards. Boggle is a board game that was released in 1972 in which players attempt to create as many words as they can from a 4x4 grid of English letters. This program employs a pruned Trie structure to speed up the generation of candidate words.
 
 ## Notes
