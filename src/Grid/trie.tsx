@@ -139,3 +139,4 @@ class BoggleParser {
 
 const solverInstance = new BoggleParser();
 export const solve = solverInstance.SolveArray.bind(solverInstance);
+``

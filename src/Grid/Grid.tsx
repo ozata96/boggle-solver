@@ -49,13 +49,14 @@ function Grid() {
                     <div className={style.grid}>
                         {values.map((row,rowIndex) =>
                             row.map((value, colIndex) =>(
-                                <input
-                                    key={`${rowIndex}-${colIndex}`}
-                                    type="text"
-                                    value={value}
-                                    onChange={(event) => handleChange(rowIndex, colIndex, event)}
-                                    maxLength={1}
-                                />
+                                <div className={style.cell} key={`${rowIndex}-${colIndex}`}>
+                                    <input
+                                        type="text"
+                                        value={value}
+                                        onChange={(event) => handleChange(rowIndex, colIndex, event)}
+                                        maxLength={1}
+                                    />
+                                </div>
                             ))
                         )}
                     </div>
