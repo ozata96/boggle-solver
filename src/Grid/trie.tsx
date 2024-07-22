@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-
 class TrieNode {
     public children: Map<string,TrieNode>;
     public endOfWord: boolean;
@@ -109,6 +107,7 @@ class BoggleParser {
                 words = [];
             }
         }
+        console.log(this.answers);
     }
 
     public Solver(current: string[], board: string[][], row: number, col: number, word: string){
@@ -117,7 +116,7 @@ class BoggleParser {
 
         word += board[row][col];
         if (!this.trie.CheckPrefix(word)) return;
-        if (this.trie.Search(word)) {
+        if (this.trie.Search(word) && word.length > 1) {
             // console.log(word);
             current.push(word);
         }

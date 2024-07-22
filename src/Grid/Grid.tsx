@@ -9,7 +9,7 @@ function Grid() {
     const [answers, setAnswers] = useState<string[]> ([""]);
 
     function handleChange(row:number, col: number, event: React.ChangeEvent<HTMLInputElement>) {
-        const newValue = event.target.value
+        const newValue = event.target.value.toUpperCase();
         const newValues = values.map((r, rIndex) => (
             r.map((val, cIndex) =>
                 rIndex === row && cIndex === col ? newValue : val
@@ -19,7 +19,8 @@ function Grid() {
     }
 
     function Solve() {
-        const answer = solve(values);
+        const candidates = values.map(row => row.map(cell => cell.toLowerCase()));
+        const answer = solve(candidates);
         setAnswers(answer);
     }
 
@@ -29,11 +30,21 @@ function Grid() {
         setAnswers([]);
     }
 
+    function GetRandomLetter(): string {
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        return alphabet[Math.floor(Math.random() * alphabet.length)];
+    }
+
+    function Randomize(){
+        const randomizedArray = Array.from({length: 4}, () => Array.from({length: 4}, () => GetRandomLetter()));
+        setValues(randomizedArray);
+    }
+
     return(
         <div>
             <h1 className={style.header}>Boggle Solver</h1>
             <div className={style.app}>
-                <div>
+                <div className={style.boggle}>
                     <div className={style.grid}>
                         {values.map((row,rowIndex) =>
                             row.map((value, colIndex) =>(
@@ -42,13 +53,15 @@ function Grid() {
                                     type="text"
                                     value={value}
                                     onChange={(event) => handleChange(rowIndex, colIndex, event)}
+                                    maxLength={1}
                                 />
                             ))
                         )}
                     </div>
-                    <span>
+                    <span className={style.buttons}>
                         <button onClick={() => Solve()}>Solve</button>
                         <button onClick={() => Clear()}>Clear</button>
+                        <button onClick={() => Randomize()}>Randomize</button>
                     </span>
                 </div>
                 <div className={style.answers}>{answers.map((val, idx) => <p key={idx}>{val}</p>)}</div>
