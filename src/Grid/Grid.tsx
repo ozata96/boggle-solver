@@ -20,7 +20,7 @@ function Grid() {
     }
 
     function Solve() {
-        const candidates = values.map(row => row.map(cell => cell.toLowerCase()));
+        const candidates = values.map(row => row.map(cell => cell.toUpperCase()));
         const answer = solve(candidates);
         setAnswers(answer);
     }
