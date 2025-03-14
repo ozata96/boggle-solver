@@ -74,11 +74,11 @@ class BoggleParser {
             const fileContent = await response.text();
     
             // Split content into lines and trim each line
-            const lines = fileContent.split('\n').map(line => line.trim());
+            const lines: string[] = fileContent.split('\n').map(line => line.trim().toUpperCase());
     
             // Insert each line into the Trie
             for (const word of lines) {
-                if (word.length > 0) { // Ensure it's not an empty line
+                if (typeof word === 'string' && word.length > 0) { 
                     this.trie.Insert(word);
                 }
             }
